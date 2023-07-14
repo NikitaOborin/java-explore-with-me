@@ -18,14 +18,20 @@ public class EventFilterAdminDto {
     private static final String format = "yyyy-MM-dd HH:mm:ss";
 
     private List<Long> users;
+
     private List<State> states;
+
     private List<Long> categories;
+
     @DateTimeFormat(pattern = format)
     private LocalDateTime rangeStart;
+
     @DateTimeFormat(pattern = format)
     private LocalDateTime rangeEnd;
+
     @PositiveOrZero
     private int from = 0;
+    
     @Positive
     private int size = 10;
 }
