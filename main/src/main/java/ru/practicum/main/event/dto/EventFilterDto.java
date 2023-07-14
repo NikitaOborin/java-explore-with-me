@@ -20,16 +20,24 @@ public class EventFilterDto {
     private static final String format = "yyyy-MM-dd HH:mm:ss";
 
     private String text;
+
     private List<Long> categories;
+
     private Boolean paid;
+
     @DateTimeFormat(pattern = format)
     private LocalDateTime rangeStart;
+
     @DateTimeFormat(pattern = format)
     private LocalDateTime rangeEnd;
+
     private boolean onlyAvailable;
+
     private StateSort sort;
+
     @PositiveOrZero
     private Integer from = 0;
+
     @Positive
     private Integer size = 10;
 }

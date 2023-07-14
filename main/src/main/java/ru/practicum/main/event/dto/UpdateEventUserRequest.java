@@ -17,17 +17,26 @@ import java.time.LocalDateTime;
 public class UpdateEventUserRequest {
     @Size(min = 3, max = 120)
     private String title;
+    
     @Size(min = 20, max = 2000)
     private String annotation;
+
     private Long category;
+
     private Boolean paid;
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @ValidDateConstraint
     private LocalDateTime eventDate;
+
     @Size(min = 20, max = 7000)
     private String description;
+
     private Integer participantLimit;
+
     private Location location;
+
     private Boolean requestModeration;
+
     private StateAction stateAction;
 }

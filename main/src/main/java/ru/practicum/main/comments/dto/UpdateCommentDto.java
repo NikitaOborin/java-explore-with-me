@@ -17,6 +17,6 @@ public class UpdateCommentDto {
     private String text;
 
     private LocalDateTime createdDate;
-    
+
     private LocalDateTime updateDate;
 }
