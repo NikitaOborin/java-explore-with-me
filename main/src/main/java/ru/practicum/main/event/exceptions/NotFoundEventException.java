@@ -7,7 +7,6 @@ import java.util.NoSuchElementException;
 @Getter
 public class NotFoundEventException extends NoSuchElementException {
     private final Long id;
-
     private final String field = "Event";
 
     public NotFoundEventException(Long id) {

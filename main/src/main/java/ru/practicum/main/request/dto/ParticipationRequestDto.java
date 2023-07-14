@@ -12,12 +12,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ParticipationRequestDto {
     private Long id;
-
     private Long requester;
-
     private Long event;
-
     private StateParticipation status;
-
     private LocalDateTime created;
 }
