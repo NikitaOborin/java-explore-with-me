@@ -11,8 +11,12 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class UpdateCommentDto {
     private Long id;
+
     private String nameAuthor;
+
     private String text;
+
     private LocalDateTime createdDate;
+    
     private LocalDateTime updateDate;
 }
