@@ -92,22 +92,22 @@ public class EventMapper {
     public static EventFullDto toEventFullDto(Event event) {
         CategoryDto categoryDto = CategoryMapper.toCategoryDto(event.getCategory());
         UserShortDto userShortDto = UserMapper.toUserShortDto(event.getInitiator());
-        return new EventFullDto(
-                event.getId(),
-                event.getTitle(),
-                event.getAnnotation(),
-                categoryDto,
-                event.isPaid(),
-                event.getEventDate(),
-                userShortDto,
-                event.getDescription(),
-                event.getParticipantLimit(),
-                event.isRequestModeration(),
-                event.getState(),
-                event.getCreatedOn(),
-                event.getLocation(),
-                event.getPublishedOn()
-        );
+        return EventFullDto.builder()
+                .id(event.getId())
+                .title(event.getTitle())
+                .annotation(event.getAnnotation())
+                .category(categoryDto)
+                .paid(event.isPaid())
+                .eventDate(event.getEventDate())
+                .initiator(userShortDto)
+                .description(event.getDescription())
+                .participantLimit(event.getParticipantLimit())
+                .requestModeration(event.isRequestModeration())
+                .state(event.getState())
+                .createdOn(event.getCreatedOn())
+                .location(event.getLocation())
+                .publishedOn(event.getPublishedOn())
+                .build();
     }
 
     private static LocalDateTime getLocalDate() {

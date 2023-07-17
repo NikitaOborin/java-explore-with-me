@@ -2,6 +2,7 @@ package ru.practicum.main.event.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.practicum.main.category.dto.CategoryDto;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class EventFullDto {
     private static final String format = "yyyy-MM-dd HH:mm:ss";
 
