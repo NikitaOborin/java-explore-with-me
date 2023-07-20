@@ -19,23 +19,17 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @ManyToOne
     @JoinColumn(name = "event_id", referencedColumnName = "id")
     private Event event;
-
     @ManyToOne
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private User author;
-
     @Column(nullable = false)
     private String text;
-
     @Column(name = "created", nullable = false)
     private LocalDateTime createdDate;
-
     @Column(name = "updated")
     private LocalDateTime updateDate;
-
 }
 
