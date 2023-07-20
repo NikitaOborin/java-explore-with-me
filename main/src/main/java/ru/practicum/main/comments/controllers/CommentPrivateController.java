@@ -27,6 +27,26 @@ public class CommentPrivateController {
         log.info("Получен запрос POST /users/{userId}/events/{eventId}/comments");
         return service.addComment(eventId, userId, commentDto);
     }
+
+    @PatchMapping("/{commentId}")
+    public UpdateCommentDto updateComment(@PathVariable Long userId,
+                                          @PathVariable Long eventId,
+                                          @PathVariable Long commentId,
+                                          @Valid @RequestBody NewCommentDto commentDto) {
+        log.info("Получен запрос PATCH /users/{userId}/events/{eventId}/comments");
+        return service.updateComment(eventId, userId, commentId, commentDto);
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{commentId}")
+    public void deleteComment(@PathVariable Long userId,
+                              @PathVariable Long eventId,
+                              @PathVariable Long commentId) {
+        log.info("Получен запрос DELETE /users/{userId}/events/{eventId}/comments");
+        service.deleteComment(userId, eventId, commentId);
+    }
+
+
     @GetMapping
     public List<CommentDto> getCommentsByUserId(@PathVariable Long userId,
                                                 @PathVariable Long eventId) {

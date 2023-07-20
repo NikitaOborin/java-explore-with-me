@@ -23,6 +23,7 @@ public class CommentPublicController {
         log.info("Получен запрос GET /events/{eventId}/comments");
         return service.getCommentsByEventId(eventId);
     }
+
     @GetMapping("/{commentId}")
     public CommentDto getCommentsByCommentId(@PathVariable Long eventId,
                                              @PathVariable Long commentId) {
