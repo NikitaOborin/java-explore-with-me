@@ -99,6 +99,18 @@ public class CommentServiceImpl implements CommentService {
         return commentDto;
     }
 
+    @Override
+    public List<CommentDto> getCommentsByUserId(Long eventId, Long userId) {
+        existEventById(eventId);
+        List<Comment> comment = commentRepository.findAllByEventIdAndAuthorId(eventId, userId);
+
+        List<CommentDto> comments = comment.stream()
+                .map(CommentMapper::toCommentDto)
+                .collect(Collectors.toList());
+        log.info("Получены Comments: {}", comments);
+        return comments;
+    }
+
     private Comment existCommentById(Long commentId) {
         return commentRepository.findById(commentId).orElseThrow(() -> new NotFoundCommentException(commentId));
     }

@@ -27,7 +27,6 @@ public class CommentPrivateController {
         log.info("Получен запрос POST /users/{userId}/events/{eventId}/comments");
         return service.addComment(eventId, userId, commentDto);
     }
-
     @GetMapping
     public List<CommentDto> getCommentsByUserId(@PathVariable Long userId,
                                                 @PathVariable Long eventId) {
