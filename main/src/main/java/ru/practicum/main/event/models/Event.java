@@ -17,6 +17,20 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Table(name = "events")
 public class Event {
+    public static final String PROP_ID = "id";
+    public static final String PROP_TITLE = "title";
+    public static final String PROP_ANNOTATION = "annotation";
+    public static final String PROP_CATEGORY = "category";
+    public static final String PROP_PAID = "paid";
+    public static final String PROP_DATE = "eventDate";
+    public static final String PROP_INITIATOR = "initiator";
+    public static final String PROP_DESCRIPTION = "description";
+    public static final String PROP_LIMIT = "participantLimit";
+    public static final String PROP_CREATED = "createdOn";
+    public static final String PROP_LOCATION = "location";
+    public static final String PROP_MODERATION = "requestModeration";
+    public static final String PROP_PUBLISHED = "publishedOn";
+    public static final String PROP_STATE = "state";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,23 +44,23 @@ public class Event {
     private Category category;
     @Column(nullable = false)
     private boolean paid;
-    @Column(nullable = false)
+    @Column(name = "event_date", nullable = false)
     private LocalDateTime eventDate;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User initiator;
     @Column(nullable = false)
     private String description;
-    @Column(nullable = false)
+    @Column(name = "participant_limit", nullable = false)
     private int participantLimit;
-    @Column(nullable = false)
+    @Column(name = "created_on", nullable = false)
     private LocalDateTime createdOn;
     @ManyToOne
     @JoinColumn(name = "location_id", referencedColumnName = "id")
     private Location location;
-    @Column(nullable = false)
+    @Column(name = "request_moderation", nullable = false)
     private boolean requestModeration;
-    @Column
+    @Column(name = "published_on")
     private LocalDateTime publishedOn;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
